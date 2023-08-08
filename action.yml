@@ -14,4 +14,4 @@ outputs:
     description: 'The response from the API call'
 runs:
   using: 'node16'
-  main: 'index.js'
+  main: 'dist/index.js'
