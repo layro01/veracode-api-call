@@ -4,7 +4,7 @@ inputs:
   base-url:  # base api url
     description: 'Base URL for your region'
     required: false
-    default: 'api.veracode.com'
+    default: 'https://api.veracode.com'
   endpoint-url:  # endpoint url
     description: 'API Endpoint to call (minus base_path)'
     required: true
