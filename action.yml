@@ -1,0 +1,17 @@
+name: 'Veracode API Call'
+description: 'Make an HMAC encrypted API call to a Veracode Platform API'
+inputs:
+  base-url:  # base api url
+    description: 'Base URL for your region'
+    required: false
+    default: 'https://api.veracode.com/'
+  endpoint-url:  # endpoint url
+    description: 'API Endpoint to call (minus base_path)'
+    required: true
+    default: '/api/authn/v2/users/self'
+outputs:
+  response: # response from api call
+    description: 'The response from the API call'
+runs:
+  using: 'node16'
+  main: 'index.js'
