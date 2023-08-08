@@ -4,11 +4,19 @@ inputs:
   base-url:  # base api url
     description: 'Base URL for your region'
     required: false
-    default: 'https://api.veracode.com/'
+    default: 'api.veracode.com'
   endpoint-url:  # endpoint url
     description: 'API Endpoint to call (minus base_path)'
     required: true
     default: '/api/authn/v2/users/self'
+  api-method: # http method
+    description: 'HTTP method to use for REST API call'
+    required: true
+    default: 'GET'
+  api-body: # http request body
+    description: 'HTTP request body for PATCH and POST methods'
+    required: false
+    default: '{}'    
 outputs:
   response: # response from api call
     description: 'The response from the API call'
