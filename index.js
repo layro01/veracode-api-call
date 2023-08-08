@@ -47,8 +47,8 @@ try {
     case 'GET':
       console.log('Making GET call');
       axios.get(fullUrl, {headers: headers}).then(response => {
-        console.log(`Response: ${JSON.stringify(response)}`);
-        core.setOutput("response", JSON.stringify(response));
+        console.log(`Response: ${JSON.stringify(response.data)}`);
+        core.setOutput("response", JSON.stringify(response.data));
       })
       break;
     case 'HEAD':
