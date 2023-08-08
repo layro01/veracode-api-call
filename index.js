@@ -1,8 +1,9 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 
-const auth = require('./auth');
 const { default: axios } = require('axios');
+
+const auth = require('./auth');
 
 try {
   // Get the input parameters defined in action metadata file.
@@ -11,7 +12,7 @@ try {
   const apiMethod = core.getInput('api-method');
   const apiBody = core.getInput('api-body');
 
-  console.log(`Parms:`);
+  console.log(`Got input parameters:`);
   console.log(`  base-url: ${baseUrl}`);
   console.log(`  endpoint-url: ${endpointUrl}`);
   console.log(`  api-method: ${apiMethod}`);
@@ -23,9 +24,18 @@ try {
   // Get the Veracode API Key and Secret from action secrets stored in the repo executing a workflow using this action.
   const apiKeyId = process.env.VERACODE_API_KEY_ID;
   const apiKeySecret = process.env.VERACODE_API_KEY_SECRET;
+  if (apiKeyId !== undefined && apiKeyId.length > 0) {
+    console.log('Got API Key ID');
+  }
+  if (apiKeySecret !== undefined && apiKeySecret.length > 0) {
+    console.log('Got API Key Secret');
+  }  
 
   // Generate an HMAC header for the call.
-  const authorization = auth.generateAuthHeader(apiKeyId, apiKeySecret, fullUrl.href, apiMethod)
+  const authorization = auth.generateAuthHeader(apiKeyId, apiKeySecret, fullUrl.href, apiMethod);
+  if (authorization !== undefined && authorization.length > 0) {
+    console.log('Generated HMAC header for request');
+  } 
 
   // Make the REST API call.
   const headers = {
