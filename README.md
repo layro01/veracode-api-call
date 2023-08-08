@@ -29,6 +29,9 @@ uses: actions/veracode-api-call@main
 with:
   base-url: 'https://api.veracode.eu/'
   endpoint-url: '/healthcheck/status'
+env:
+    VERACODE_API_KEY_ID: ${{ secrets.VERACODE_API_KEY_ID }}
+    VERACODE_API_KEY_SECRET: ${{ secrets.VERACODE_API_KEY_SECRET }}
 ```
 
 ## Publishing Action Updates
