@@ -45,7 +45,9 @@ try {
 
   switch (apiMethod) {
     case 'GET':
+      console.log('Making GET call');
       axios.get(fullUrl, {headers: headers}).then(response => {
+        console.log(`Response: ${response}`);
         core.setOutput("response", response);
       })
       break;
