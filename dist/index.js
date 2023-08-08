@@ -16481,6 +16481,12 @@ try {
   const apiMethod = core.getInput('api-method');
   const apiBody = core.getInput('api-body');
 
+  console.log(`Parms:`);
+  console.log(`  base-url: ${baseUrl}`);
+  console.log(`  endpoint-url: ${endpointUrl}`);
+  console.log(`  api-method: ${apiMethod}`);
+  console.log(`  api-body: ${apiBody}`);
+
   const fullUrl = new URL(endpointUrl, baseUrl);
   console.log(`Calling ${apiMethod} ${fullUrl.href}...`);
 
